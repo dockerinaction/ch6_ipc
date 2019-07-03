@@ -13,21 +13,6 @@
 #define M_EXIT    "done"
 #define SRV_FLAG  "-producer"
 
-int main(int argc, char *argv[])
-{
-    if (argc < 2)
-    {
-        producer();
-    }
-    else if (argc >= 2 && 0 == strncmp(argv[1], SRV_FLAG, strlen(SRV_FLAG)))
-    {
-        producer();
-    }
-    else
-    {
-        consumer();
-    }
-}
 
 int producer()
 {
@@ -84,4 +69,20 @@ int consumer()
 
     mq_close(mq);
     return 0;
+}
+
+int main(int argc, char *argv[])
+{
+    if (argc < 2)
+    {
+        producer();
+    }
+    else if (argc >= 2 && 0 == strncmp(argv[1], SRV_FLAG, strlen(SRV_FLAG)))
+    {
+        producer();
+    }
+    else
+    {
+        consumer();
+    }
 }
